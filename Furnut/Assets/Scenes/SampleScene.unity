@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -373,17 +373,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 534669902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7379fb8344cde284ba4ae2b845e90e53, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a46bf6915134c24096abfc0dfa476e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableInputCapture: 1
-  holdRightMouseCapture: 0
-  lookSpeed: 5
-  moveSpeed: 5
-  sprintSpeed: 50
-  m_inputCaptured: 0
-  m_yaw: 0
-  m_pitch: 0
+  fileName: Unity (Editor).csv
 --- !u!1 &582755443
 GameObject:
   m_ObjectHideFlags: 0
