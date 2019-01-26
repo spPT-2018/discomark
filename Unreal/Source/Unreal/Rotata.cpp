@@ -32,7 +32,7 @@ void URotata::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponen
 	auto rotator = FRotator{ Speed1 * DeltaTime, Speed2 * DeltaTime, Speed3 * DeltaTime };
 
 	FHitResult hitResult;
-	actorRoot->AddLocalRotation(rotator, false, &hitResult, TeleportFlagToEnum(false));
+	actorRoot->AddRelativeRotation(rotator, false, &hitResult, TeleportFlagToEnum(false));
 	// ...
 }
 

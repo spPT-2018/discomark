@@ -6,6 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "Rotata.h"
 #include "Runtime/Engine/Classes/Components/SpotLightComponent.h"
+#include "Runtime/Engine/Classes/GameFramework/RotatingMovementComponent.h"
 #include "LightSpawner.generated.h"
 
 

@@ -29,18 +29,24 @@ void ULightSpawner::BeginPlay()
 		return;
 	}
 
-	for (size_t i = 0; i < NumberOfLights; i++)
+	for (auto i = 0; i < NumberOfLights; i++)
 	{
 		auto light = SpawnLight(unrealWorld, LightBlueprint);
-		auto rotator = Cast<URotata>(light->GetComponentByClass(TSubclassOf<URotata>()));
-		rotator->Speed1 = FMath::RandRange(0.0f, 20.0f);
-		rotator->Speed1 = FMath::RandRange(0.0f, 20.0f);
-		rotator->Speed1 = FMath::RandRange(0.0f, 20.0f);
+		auto rotator = Cast<URotatingMovementComponent>(light->GetComponentByClass(URotatingMovementComponent::StaticClass()));
+		if (rotator != nullptr) {
+			auto rotation = FRotator{ FMath::RandRange(0.0f, 20.0f), FMath::RandRange(0.0f, 20.0f), FMath::RandRange(0.0f, 20.0f) };
+			rotator->RotationRate = rotation;
+		}
+		else
+			UE_LOG(LogTemp, Error, TEXT("Could not find URotata on light in LightSpawner->BeginPlay()"));
 
 		auto unrealLight = Cast<USpotLightComponent>(light->GetComponentByClass(USpotLightComponent::StaticClass()));
-		if (unrealLight->IsValidLowLevel()) {
-			unrealLight->LightColor = FColor::MakeRandomColor();
-			unrealLight->OuterConeAngle = FMath::RandRange(0.0f, 30.0f);
+		if (unrealLight != nullptr) {
+			unrealLight->SetLightColor(FLinearColor::MakeRandomColor());
+			unrealLight->SetOuterConeAngle(FMath::RandRange(0.1f, 30.0f));
+		}
+		else {
+			UE_LOG(LogTemp, Error, TEXT("Could not find USpotLightComponent on light in LightSpawner->BeginPlay()"));
 		}
 	}
 	
